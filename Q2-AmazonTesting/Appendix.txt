@@ -1,0 +1,72 @@
+This file tells the meaning and purpose for each method used in each line of code.
+Refer to: .\amazon-selenium\src\selenium\testing\AmazonTesting.java
+
+
+While opening Amazon.in website, the following line is written:
+driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+The code `driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);` sets the implicit wait time for the Selenium WebDriver instance called `driver`.
+The implicit wait is a mechanism provided by Selenium to wait for a certain amount of time when searching for elements on a web page.
+It tells the WebDriver to wait for a specified period of time before throwing an exception if the element being searched for is not immediately present in the DOM (Document Object Model).
+In this case, the code sets the implicit wait time to 15 seconds using the `implicitlyWait()` method.
+This means that if the WebDriver cannot immediately find a specific element, it will wait for up to 15 seconds for the element to appear in the DOM before throwing a `NoSuchElementException` exception.
+By setting an implicit wait time, the code allows the WebDriver to wait for a certain period before giving up on locating an element.
+This can be useful when working with web pages that have dynamic content or elements that may take some time to load.
+It's worth noting that the implicit wait time is applicable for the entire duration of the WebDriver instance unless changed again using the same method.
+
+
+catch (Exception e) {
+	e.printStackTrace();
+}
+The code snippet `catch (Exception e) { e.printStackTrace(); }` is a catch block that handles any exception that occurs within a try block.
+When an exception is thrown within the corresponding try block, the catch block is executed, allowing you to handle and manage the exception.
+In this specific case, the catch block uses the `printStackTrace()` method to print the exception's stack trace to the console.
+The stack trace is a list of method calls that shows the sequence of events leading up to the exception.
+It includes information about the class, method, and line number where the exception occurred. Printing the stack trace can be helpful for debugging purposes, as it provides valuable information about the exception and its context.
+By using `e.printStackTrace()`, the exception's stack trace is printed to the console, making it easier to identify and diagnose the cause of the exception.
+
+
+WebElement searchElement1 = driver.findElement(By.cssSelector("div[data-component-type='s-search-result'] h2 a"));
+The code `WebElement searchElement1 = driver.findElement(By.cssSelector("div[data-component-type='s-search-result'] h2 a"));` is assigning a value to the variable `searchElement1` of type `WebElement`.
+The purpose of this code is to locate an element on a web page using a CSS selector and assign it to the `searchElement1` variable.
+Let's break down the CSS selector used in the code:
+`div[data-component-type='s-search-result'] h2 a`
+- `div[data-component-type='s-search-result']`: This selects a `div` element that has an attribute `data-component-type` with a value of `'s-search-result'`.
+- `h2 a`: This selects an `a` (anchor) element that is a descendant of an `h2` element.
+In summary, the code is looking for an `a` element within an `h2` element that is contained within a `div` element with the attribute `data-component-type` set to `'s-search-result'`.
+Once the element is located using the CSS selector, it is assigned to the `searchElement1` variable, allowing further interaction with the element using Selenium's WebDriver methods and properties.
+
+
+WebElement quantityDropdown = driver.findElement(By.xpath("//select[@name='quantity']"));
+The code `WebElement quantityDropdown = driver.findElement(By.xpath("//select[@name='quantity']"));` is assigning a value to the variable `quantityDropdown` of type `WebElement`.
+This code is using an XPath expression to locate an HTML `select` element on a web page based on its attribute value.
+Let's break down the XPath expression used in the code:
+`//select[@name='quantity']`
+- `//`: This selects any element in the document, regardless of its position.
+- `select`: This selects the `select` element.
+- `[@name='quantity']`: This specifies a condition that the `name` attribute of the `select` element should have a value of `'quantity'`.
+In summary, the code is searching for a `select` element on the web page that has its `name` attribute set to `'quantity'`.
+Once the element is located using the XPath expression, it is assigned to the `quantityDropdown` variable.
+This allows further interaction with the dropdown element, such as selecting options or retrieving its properties, using Selenium's WebDriver methods and properties.
+
+
+WHEN TO USE FIND_BY_ELEMENT AND WHEN TO USE XPATH?
+When choosing between XPath and the various `findBy` methods in Selenium (such as `findElement(By.id())`, `findElement(By.className())`, `findElement(By.name())`, etc.), there are a few factors to consider:
+
+XPath:
+- Use XPath when there are no other suitable attributes or unique identifiers available for locating an element.
+  XPath provides a powerful way to traverse the DOM and select elements based on various conditions, such as attribute values, element hierarchy, text content, and more.
+- XPath can be useful when working with complex web page structures, dynamic IDs, or when targeting elements based on their relationships with other elements.
+- However, XPath expressions can be more complex and slower in performance compared to the `findBy` methods.
+  They may also be more brittle if the web page structure or element positions change.
+
+`findBy` methods:
+- Use the `findBy` methods when there are specific attributes or unique identifiers available for locating elements.
+  These methods provide a more direct and efficient way to locate elements using attributes like ID, class name, name, tag name, etc.
+- The `findBy` methods are generally faster and less prone to breaking compared to XPath expressions.
+- They are easier to read and understand, as they provide a more intuitive and straightforward way to locate elements based on commonly used attributes.
+- However, if the desired element does not have a unique identifier or the available attributes are not sufficient, the `findBy` methods may not be suitable, and XPath can be a viable alternative.
+
+In summary, prefer the `findBy` methods whenever possible, as they offer better performance and readability.
+Use XPath when there are no other reliable options available or when dealing with complex web page structures.
+It's important to strike a balance between readability, efficiency, and robustness when selecting the appropriate method for locating elements in Selenium.
