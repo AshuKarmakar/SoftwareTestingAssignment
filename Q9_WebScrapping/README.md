@@ -5,8 +5,8 @@ Steps to Run
 - npm install 
 - npm test ( This will open the Medium.com webpage, click on a random link and scrap links & paragraphs from the linked page ) <Q9>
 
-# Recorded Videos
-- For Q9 - Download Q9_WebScraping.mp4 & play
+# Recorded Video
+- For Q9 - Download Q9_webScraping.mp4 & play
 
 # Disclaimer
 Please re-run the program in occurance of the following extremely rare cases:
@@ -15,3 +15,9 @@ Please re-run the program in occurance of the following extremely rare cases:
 - In case very small number of information pieces are loaded: The program extracts information in a random fashion in each run. Even if this happens, it is normal. It is likely to extract more information in the next run.
 
 Please note that these cases are extremely rare and take place under very specific conditions. It is highly unlikely that someone would encounter these. But even in such a case, please consider re-running the program to see proper results.
+
+# Authors
+Avantika Mishra, 2YB, 2022SP93049  
+Amit Raj, 2YB, 2022SP93059  
+Sritik Dash, 2YB, 2022SP93073  
+Ashutosh Karmakar, 2YB, 2022SP93074
